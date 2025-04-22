@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="project.css">
+    
+</head>
+<body>
+    <div class="row1">
+        <div class="col1">
+            <ul type="none">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Signup</a></li>
+            </ul>
+        </div>
+        <div class="col2">
+            <h1>SADHA</h1>
+        </div>
+    </div>
+    <div class="big">
+        <div class="row2">
+            <form>
+                <div>
+                    <div class="error"></div>
+                    <label for="name" class="pp">Name</label>
+                    <input type="text" id="name" class="tt">
+                    
+                </div>
+                <div>
+                    <div class="error"></div>
+                    <lable for="email" class="pp" for="num">Email</lable>
+                    <input type="email" id="email" class="tt">
+                </div>
+                <div>
+                    <div class="error"></div>
+                    <lable class="pp" for="num">Phone Number</lable>
+                    <input type="number" id="num" class="tt">
+                </div>
+                <div>
+                    <div class="error"></div>
+                    <label class="pp">Travel</label>
+                    <input type="checkbox" id="fl" class="check" name="travel" value="Flight"><label class="cc" for>Flight</label>
+                    <input type="checkbox" id="bus" class="check" name="travel" value="Bus"><label class="cc" for>Bus</label>
+                    <input type="checkbox" id="tra" class="check" name="travel" value="Train"><label class="cc" for>Train</label>
+                    </div>
+                    <div class="but">
+                        <button type="button" onclick="submitdata()">submit</button>
+                    </div>
+        </form>
+                <script>
+                    function submitdata(){
+
+                let name1=document.getElementById("name");
+                console.log(name1);
+                console.log(name1.value);
+                let finalname=name1.value;
+
+                let email1=document.getElementById("email");
+                console.log(email1);
+                console.log(email1.value);
+                let finalemail1=email1.value;
+
+                let num1=document.getElementById("num");
+                console.log(num1);
+                console.log(num1.value);
+                let finalnum1=num1.value;
+
+                let checks=document.getElementsByName("travel");
+    
+                let ramya=[];
+                for(let travel of checks){
+                    if(travel.checked){
+                        ramya.push(travel.value);
+                    }
+                }
+                console.log(ramya);
+            let  sadha=ramya.join();
+                // console.log(finalname);
+                // console.log(finalemail1);
+                // console.log(finalnum1);
+                // console.log(finalchecks);
+                
+    if(name1.value===''){
+        setError(name1,"name is empty")
+    }            
+    else{
+        setSuccess(name1);
+    }
+                    
+
+    if(email1.value===''){
+    setError(email1,"email is empty")
+    }
+    else{
+        setSuccess(email1);
+    }
+    if(num1.value===''){
+    setError(num1,"number is empty")
+    }
+    else{
+        setSuccess(num1);
+    }
+    if(sadha===''){
+        setError(checks[0],"travel is empty")
+    }
+    else{
+        setSuccess(checks[0]);
+    }
+                    }
+                    function setError(element,msg){
+                        let parents=element.parentElement;
+                        let resfinal= parents.querySelector(".error");
+                        resfinal.innerText=msg;
+                    }
+                    function setSuccess(element){
+                        let parents= element.parentElement;
+                        let resfinal= parents.querySelector(".error");
+                        resfinal.innerText='';    
+                    }
+   
+   
+                
+                </script>
+            
+        </div>
+    </div>
+</body>
+</html>
